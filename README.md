@@ -1,8 +1,9 @@
 # ZXRE
 
-ZXRE is an LLM-assisted, evidence-driven reverse-engineering toolkit project.
+ZXRE is an LLM-assisted, evidence-driven reverse-engineering toolkit project for Z80 CPU.
 
 Current foundation focus:
+
 - Deterministic tooling and repeatable analysis pipelines are kept separate from semantic/agent analysis.
 - Initial target platforms are ZX Spectrum 48K/Z80 and TAP/TZX workflows.
 - The core architecture is scaffolded to remain independent from any single emulator or harness.
