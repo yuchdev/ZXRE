@@ -1,0 +1,55 @@
+[project]
+name = "zxre"
+dynamic = ["version"]
+description = "ZXRE scaffold for deterministic reverse-engineering tooling"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+authors = [{ name = "ZXRE contributors" }]
+dependencies = []
+
+[project.scripts]
+zxre = "zxre.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/zxre/__init__.py"
+
+[dependency-groups]
+lint = [
+  "ruff>=0.12.0",
+]
+type = [
+  "mypy>=1.17.0",
+]
+test = [
+  "pytest>=8.4.0",
+]
+dev = [
+  { include-group = "lint" },
+  { include-group = "type" },
+  { include-group = "test" },
+  "pre-commit>=4.3.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/zxre"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
